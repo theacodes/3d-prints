@@ -29,11 +29,18 @@ module riser() {
                     __lid_holes();
                 }
             }
-            linear_extrude(lid_thickness + pcb_size.z + 1) {
-                __riser_pegs_outline(pos=pos, size=size, d=lid_hole_diameter - 0.03);
-            }
-            linear_extrude(pcb_size.z) {
-                __riser_pegs_outline(pos=pos, size=size, d=lid_hole_diameter + 0.03);
+            difference() {
+                union() {
+                    linear_extrude(lid_thickness + pcb_size.z) {
+                    __riser_pegs_outline(pos=pos, size=size, d=lid_hole_diameter - 0.02);
+                    }
+                    linear_extrude(pcb_size.z) {
+                        __riser_pegs_outline(pos=pos, size=size, d=lid_hole_diameter + 0.03);
+                    }
+                }
+                linear_extrude(lid_thickness + pcb_size.z + 0.02) {
+                    __riser_pegs_outline(pos=pos, size=size, d=lid_hole_diameter / 2);
+                }
             }
         }
     }
