@@ -5,9 +5,13 @@ use <riser.scad>
 use <adjustable riser.scad>
 use <vacuum adapter.scad>
 use <vacuum seal.scad>
+use <vacuum release.scad>
 
 box($fn=10);
 translate([box_size.x, 0]) {
+    box($fn=10);
+}
+translate([box_size.x * 2, 0]) {
     box($fn=10);
 }
 
@@ -20,6 +24,12 @@ translate([box_size.x / 2, -2, box_size.z / 2]) {
 translate([box_size.x * 1.5, 0, box_size.z / 2]) {
     rotate([90, 0, 0]) {
         vacuum_adapter($fn=20);
+    }
+}
+
+translate([box_size.x * 2.5, -2, box_size.z / 2]) {
+    rotate([270, 0, 0]) {
+        vacuum_release();
     }
 }
 
