@@ -4,17 +4,27 @@ use <lid.scad>
 use <riser.scad>
 use <adjustable riser.scad>
 use <vacuum adapter.scad>
+use <vacuum seal.scad>
 
-box();
+box($fn=10);
+translate([box_size.x, 0]) {
+    box($fn=10);
+}
 
-translate([box_size.x / 2, 0, box_size.z / 2]) {
+translate([box_size.x / 2, -2, box_size.z / 2]) {
+    rotate([270, 0, 0]) {
+        vacuum_seal($fn=10);
+    }
+}
+
+translate([box_size.x * 1.5, 0, box_size.z / 2]) {
     rotate([90, 0, 0]) {
-        vacuum_adapter();
+        vacuum_adapter($fn=20);
     }
 }
 
 translate([0, 0, box_size.z]) {
-    lid_3d();
+    lid_3d($fn=10);
 }
 
 translate([
