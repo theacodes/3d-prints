@@ -21,8 +21,8 @@ translate([box_size.x / 2, -2, box_size.z / 2]) {
     }
 }
 
-translate([box_size.x * 1.5, 0, box_size.z / 2]) {
-    rotate([90, 0, 0]) {
+translate([box_size.x * 1.5, -2, box_size.z / 2]) {
+    rotate([270, 0, 0]) {
         vacuum_adapter($fn=20);
     }
 }

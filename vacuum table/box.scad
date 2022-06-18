@@ -26,6 +26,17 @@ module __bolt_holes_outline(d, size) {
     }
 }
 
+module __vacuum_hole_bolts_outline() {
+    spacing = vacuum_hole_diameter * 0.6;
+    screw_spacing = spacing + vacuum_hole_diameter / 2 + bolt_head_clearance / 2 + 2;
+
+    translate([screw_spacing, 0, 0]) {
+        circle(d = bolt_diameter);
+    }
+    translate([-screw_spacing, 0, 0]) {
+        circle(d = bolt_diameter);
+    }
+}
 
 module __vacuum_hole_outline() {
     spacing = vacuum_hole_diameter * 0.6;
@@ -39,14 +50,7 @@ module __vacuum_hole_outline() {
         }
     }
 
-    screw_spacing = spacing + vacuum_hole_diameter / 2 + bolt_head_clearance / 2 + 2;
-
-    translate([screw_spacing, 0, 0]) {
-        circle(d = bolt_diameter);
-    }
-    translate([-screw_spacing, 0, 0]) {
-        circle(d = bolt_diameter);
-    }
+    __vacuum_hole_bolts_outline();
 }
 
 module __vacuum_hole() {

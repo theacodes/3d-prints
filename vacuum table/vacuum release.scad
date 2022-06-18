@@ -4,11 +4,10 @@ use <vacuum seal.scad>
 use <threads.scad>
 
 module vacuum_release_plate() {
-    spacing = vacuum_hole_diameter * 0.6;
     color("Orange") {
         ScrewHole(8, 10) {
             linear_extrude(1.5) {
-                __vacuum_seal_outline(spacing);
+                __vacuum_seal_outline();
             }
             linear_extrude(5) {
                 circle(d=11);
