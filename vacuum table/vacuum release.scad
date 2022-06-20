@@ -5,7 +5,7 @@ use <threads.scad>
 
 module vacuum_release_plate() {
     color("Orange") {
-        ScrewHole(8, 10) {
+        ScrewHole(9.02, 10) {
             linear_extrude(1.5) {
                 __vacuum_seal_outline();
             }
@@ -49,7 +49,7 @@ module vacuum_release_bolt() {
 module vacuum_release() {
     vacuum_release_plate();
     translate([0, 0, -8]) {
-        vacuum_release_bolt();
+        //vacuum_release_bolt();
     }
 }
 
