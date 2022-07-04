@@ -110,5 +110,5 @@ module __staging_plate_round_those_corners_bb(r) {
 }
 
 
-staging_plate();
+staging_plate($fn=100);
 

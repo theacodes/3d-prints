@@ -1,6 +1,6 @@
 use <staging_plate.scad>
 
-pcb_size = [100, 100];
+pcb_size = [100, 150];
 $fn = 20;
 
 pcb_holder(pcb_size = pcb_size);
@@ -34,6 +34,7 @@ module pcb_holder(
             screw_diameter = screw_diameter,
             screw_head_diameter = screw_head_diameter,
             screw_head_height = screw_head_height);
+        __labels(frame_size=frame_size);
     }
 }
 
@@ -138,6 +139,23 @@ module __pcb_edges(frame_size, staging_height, lip_height, lip_width) {
                 }
             }
         }
+    }
+}
+
+module __label(content, align, face=0) {
+    translate([3, 0.5, 2]) rotate([90, 0, face]) linear_extrude(2) text(content, size=5, font="Liberation Mono:style=Bold", halign=align);
+}
+
+module __labels(frame_size) {
+    __label("0,0", align="left");
+    translate([frame_size.x - 6, 0]) {
+        __label(str(pcb_size[0], ",0"), align="right");
+    }
+    translate([frame_size.x - 6, frame_size.y - 1]) {
+        __label(str(pcb_size[0], ",", pcb_size[1]), align="left", face=180);
+    }
+    translate([0, frame_size.y - 1]) {
+        __label(str("0,", pcb_size[1]), align="right", face=180);
     }
 }
 
