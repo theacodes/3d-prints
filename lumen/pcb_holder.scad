@@ -1,9 +1,9 @@
 use <staging_plate.scad>
 
-pcb_size = [100, 150];
-$fn = 20;
+/* Change to your board's dimensions: width, height, thickness */
+pcb_size = [100, 150, 1.6];
+pcb_holder(pcb_size = pcb_size, $fn = 20);
 
-pcb_holder(pcb_size = pcb_size);
 
 module pcb_holder(
         pcb_size,
@@ -15,6 +15,7 @@ module pcb_holder(
         screw_head_diameter = 6.2,
         screw_head_height = 3) {
 
+    staging_height = staging_height - pcb_size[2];
     frame_size = [pcb_size.x + lip_width * 2, pcb_size.y + lip_width * 2, staging_height + lip_height];
     grid_offset = [lip_width + screw_head_diameter / 2 + 1, lip_width + screw_head_diameter / 2 + 1];
     staging_plate_size = frame_size - grid_offset;
