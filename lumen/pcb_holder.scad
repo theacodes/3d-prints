@@ -1,7 +1,7 @@
 use <staging_plate.scad>
 
 /* Change to your board's dimensions: width, height, thickness */
-pcb_size = [100, 150, 1.6];
+pcb_size = [150, 100, 1.6];
 pcb_holder(pcb_size = pcb_size, $fn = 20);
 
 
