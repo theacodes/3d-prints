@@ -62,5 +62,5 @@ module skadis_rack(d, d1 = 20, d2 = 10, n = 6, compact = false, all_pegs = all_p
 }
 
 color(c = [0, 0, 1], alpha = 1) {
-    skadis_rack(d1 = 16, d2 = [6, 6, 6, 6], height=pw, n = 4, compact=false);
+    skadis_rack(d1 = 16, d2 = [6.3, 6.3, 6.3, 6.3, 6.3, 6.3, 6.3, 6.3], height=pw, n = 8, compact=false);
 }
