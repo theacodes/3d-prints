@@ -1,9 +1,10 @@
 $fn = 50;
-label="M3";
-nut_short_diameter=5.5;
+label="10";
+nut_short_diameter=10.02;
 nut_diameter=2 * (nut_short_diameter / sqrt(3));
-outer_diameter=nut_diameter + 3;
-height = 22;
+
+outer_diameter=nut_diameter + 4;
+height = 25;
 fin_width = outer_diameter + 12;
 fin_thickness = 3;
 fin_offset = 3;
